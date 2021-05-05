@@ -1,3 +1,8 @@
+<?php
+//Connect to db
+include "conn.php";
+?>
+
 <html>
 <head>
 <!-- add css -->
@@ -14,29 +19,16 @@
 <body>
 
 <div class="container mw-100 border">
+    <h4>Dodaj towar</h4>
+    <!-- Form for adding article -->
+    <form action="addStuff.php" method="POST">
+        Nazwa: <input type="text" name="title"><br />
+        Opis: <input type="text" name="description"><br />
+        Grafika: <input type="text" name="image"><br />
+        Cena: <input type="text" name="price"><br />
+        <input type="Submit">
+    </form>
 
-    <div class="row border">
-        <div class="col-3">
-            <a href="index.php">HOME</a>
-        </div>
-        <div class="col-5">
-        <a href="index.php">TOWARY</a>
-        </div>
-        <div class="col-4">
-            <a href="index.php">SZUKAJ</a>
-            <a href="index.php">TWOJE KONTO</a>
-            <a href="index.php">KOSZYK</a>
-        </div>
-    </div>
-    <div class="row border">
-        <center><marquee>SLIDER</marquee></center>
-    </div>
-    <div class="row border">
-        <center><marquee>TOPOWY TOWAR</marquee></center>
-    </div>
-    <div class="row border">
-        <center><marquee>STOPKA</marquee></center>
-    </div>
 
 </div>
      
@@ -51,3 +43,7 @@
 
 </body>
 </html>
+<?php
+//Close db
+mysqli_close($conn);
+?>
