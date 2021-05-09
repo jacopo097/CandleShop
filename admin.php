@@ -22,10 +22,10 @@ include "conn.php";
     <h4>Dodaj towar</h4>
     <!-- Form for adding article -->
     <form action="addStuff.php" method="POST">
-        Nazwa: <input type="text" name="title"><br />
-        Opis: <input type="text" name="description"><br />
-        Grafika: <input type="text" name="image"><br />
-        Cena: <input type="text" name="price"><br />
+        Nazwa: <input type="text" name="title" required="required" minlength="3" maxlength="950"><br />
+        Opis: <textarea name="description" rows="5" required="required" minlength="3" maxlength="1450"></textarea><br />
+        Grafika: <input type="text" name="image" required="required" minlength="3" maxlength="95"><br />
+        Cena: <input type="text" name="price" required="required" min="0"><br />
         <input type="Submit">
     </form>
 
