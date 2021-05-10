@@ -1,6 +1,7 @@
 <?php
 //Connect to db
 include "conn.php";
+session_start();
 ?>
 
 <html>
@@ -19,17 +20,23 @@ include "conn.php";
 <body>
 
 <div class="container mw-100 border">
+    <?php
+
+        if(isset($_SESSION['addPrompt'])){
+            echo $_SESSION['addPrompt'];
+            unset($_SESSION['addPrompt']);
+        }
+    ?>
     <h4>Dodaj towar</h4>
     <!-- Form for adding article -->
     <form action="addStuff.php" method="POST">
+        <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URI"]; ?>"/>
         Nazwa: <input type="text" name="title" required="required" minlength="3" maxlength="950"><br />
         Opis: <textarea name="description" rows="5" required="required" minlength="3" maxlength="1450"></textarea><br />
         Grafika: <input type="text" name="image" required="required" minlength="3" maxlength="95"><br />
         Cena: <input type="text" name="price" required="required" min="0"><br />
         <input type="Submit">
     </form>
-
-
 </div>
      
 <!-- add Bootstrap -->    
